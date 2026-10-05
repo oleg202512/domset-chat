@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ДомСеть: Техподдержка</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Служба поддержки</p>
+        <h1>ДомСеть: Техподдержка</h1>
+      </div>
+      <div class="header-actions">
+        <button id="new-chat" class="button button-secondary">Новый чат</button>
+        <button id="settings-button" class="icon-button" aria-label="Настройки">⚙</button>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <section class="chat-card">
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <div id="typing" class="typing hidden"><span></span><span></span><span></span><b>AI печатает</b></div>
+        <form id="chat-form" class="composer">
+          <textarea id="message-input" rows="2" placeholder="Напишите вопрос о Wi‑Fi роутере..." required></textarea>
+          <button class="button button-primary" type="submit">Отправить</button>
+        </form>
+        <p class="hint">Enter — отправить · Shift+Enter — новая строка</p>
+      </section>
+
+      <aside class="chunks-card">
+        <div class="panel-heading">
+          <h2>Найденные фрагменты</h2>
+          <span id="chunk-count">0</span>
+        </div>
+        <p id="chunks-empty" class="muted">После вопроса здесь появятся 5 релевантных фрагментов базы знаний.</p>
+        <div id="chunks" class="chunks"></div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="settings-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="modal-content">
+      <button id="close-settings" class="close-button" aria-label="Закрыть">×</button>
+      <h2 id="settings-title">Настройки</h2>
+      <p class="muted">Введите API-ключ учебной платформы. Он сохраняется только в localStorage этого браузера.</p>
+      <label for="api-key">API Key</label>
+      <input id="api-key" type="password" autocomplete="off" placeholder="Введите ключ">
+      <button id="save-settings" class="button button-primary full-width">Сохранить</button>
+      <p id="settings-status" class="status"></p>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
